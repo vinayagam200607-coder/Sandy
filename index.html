@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enable Location</title>
+  <style>
+    body {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:Arial;
+      background:#111;
+      color:#fff;
+      text-align:center;
+    }
+    button {
+      padding:15px 25px;
+      font-size:18px;
+      border:none;
+      border-radius:10px;
+      background:#00ffcc;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <h2>Click below to continue</h2>
+  <button onclick="getLocation()">Continue</button>
+</div>
+
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        document.body.innerHTML = "<h1>Nothing, Go and do your work 😄</h1>";
+      },
+      function(error) {
+        alert("Please allow location to continue");
+      }
+    );
+  } else {
+    alert("Location not supported");
+  }
+}
+</script>
+
+</body>
+</html>
